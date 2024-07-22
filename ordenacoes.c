@@ -41,9 +41,27 @@ void insertion_sort(int *numbers, int arr_size) {
     }
 }
 
+void selection_sort(int *numbers, int arr_size) {
+    int i, j, menor, temp;
+
+    for (i = 0; i < arr_size; i++) {
+        menor = i;
+        for (j = i+1; j < arr_size; j++) {
+            if (numbers[j] < numbers[menor]) {
+                menor = j;
+            }
+        }
+
+        temp = numbers[menor];
+        numbers[menor] = numbers[i];
+        numbers[i] = temp;
+    }
+}
+
 int main(int argc, char *argv[]) {
     FILE *file;
-    int numbers[MAX_NUMBERS];
+    int numbers_insertion[MAX_NUMBERS];
+    int numbers_selection[MAX_NUMBERS];
     int arr_size;
     clock_t start;
 
@@ -54,13 +72,17 @@ int main(int argc, char *argv[]) {
     }
 
     // Abrindo o arquivo para leitura
-    arr_size = ler_arquivo(file, argv[1], numbers);
+    arr_size = ler_arquivo(file, argv[1], numbers_insertion);
+    arr_size = ler_arquivo(file, argv[1], numbers_selection);
+
+    printf("Selection x Insertion\n");
 
     start = clock();
+    insertion_sort(numbers_insertion, arr_size);
+    printf("%.5f     ", (double)(clock() - start)/CLOCKS_PER_SEC);
 
-    // Ordena o array
-    insertion_sort(numbers, arr_size);
-
+    start = clock();
+    selection_sort(numbers_selection, arr_size);
     printf("%.5f\n", (double)(clock() - start)/CLOCKS_PER_SEC);
 
     return 0;

@@ -29,6 +29,18 @@ int ler_arquivo(FILE *file, char *nome_arquivo, int *numeros) {
     return i;
 }
 
+void insertion_sort(int *numbers, int arr_size) {
+    int i, j, atual, temp;
+
+    for (i = 1; i < arr_size; i++) {
+        atual = numbers[i];
+        for (j = i-1; atual < numbers[j] && j>0; j--) {
+            numbers[j+1] = numbers[j];
+        }
+        numbers[j+1] = atual;
+    }
+}
+
 void selection_sort(int *numbers, int arr_size) {
     int i, j, menor, temp;
 
@@ -46,27 +58,35 @@ void selection_sort(int *numbers, int arr_size) {
     }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
+    char filename[64];
     FILE *file;
-    int numbers[MAX_NUMBERS];
+    int numbers_insertion[MAX_NUMBERS];
+    int numbers_selection[MAX_NUMBERS];
     int arr_size;
     clock_t start;
+    int numbers_filename;
 
-    // Verificando se o nome do arquivo foi passado como argumento
-    if (argc < 2) {
-        printf("Uso: %s <nome_do_arquivo>\n", argv[0]);
-        return 1;
+    printf("%37s", "Selection x Insertion\n");
+
+    numbers_filename = 1000;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 1; j < 5; j++) {
+            sprintf(filename, "num.%d.%d.in", numbers_filename, j);
+            printf("%s: ", filename);
+            arr_size = ler_arquivo(file, filename, numbers_insertion);
+            arr_size = ler_arquivo(file, filename, numbers_selection);
+
+            start = clock();
+            insertion_sort(numbers_insertion, arr_size);
+            printf("%.5f     ", (double)(clock() - start)/CLOCKS_PER_SEC);
+
+            start = clock();
+            selection_sort(numbers_selection, arr_size);
+            printf("%.5f\n", (double)(clock() - start)/CLOCKS_PER_SEC);
+        }
+        numbers_filename *= 10;
     }
-
-    // Abrindo o arquivo para leitura
-    arr_size = ler_arquivo(file, argv[1], numbers);
-
-    start = clock();
-
-    // Ordena o array
-    selection_sort(numbers, arr_size);
-
-    printf("%.5f\n", (double)(clock() - start)/CLOCKS_PER_SEC);
 
     return 0;
 }
