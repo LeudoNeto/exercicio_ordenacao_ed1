@@ -34,7 +34,7 @@ void insertion_sort(int *numbers, int arr_size) {
 
     for (i = 1; i < arr_size; i++) {
         atual = numbers[i];
-        for (j = i-1; atual < numbers[j] && j>0; j--) {
+        for (j = i-1; atual < numbers[j] && j>=0; j--) {
             numbers[j+1] = numbers[j];
         }
         numbers[j+1] = atual;
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     arr_size = ler_arquivo(file, argv[1], numbers_insertion);
     arr_size = ler_arquivo(file, argv[1], numbers_selection);
 
-    printf("Selection x Insertion\n");
+    printf("Insertion x Selection\n");
 
     start = clock();
     insertion_sort(numbers_insertion, arr_size);

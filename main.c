@@ -34,7 +34,7 @@ void insertion_sort(int *numbers, int arr_size) {
 
     for (i = 1; i < arr_size; i++) {
         atual = numbers[i];
-        for (j = i-1; atual < numbers[j] && j>0; j--) {
+        for (j = i-1; atual < numbers[j] && j>=0; j--) {
             numbers[j+1] = numbers[j];
         }
         numbers[j+1] = atual;
@@ -67,7 +67,7 @@ int main() {
     clock_t start;
     int numbers_filename;
 
-    printf("%37s", "Selection x Insertion\n");
+    printf("%37s", "Insertion x Selection\n");
 
     numbers_filename = 1000;
     for (int i = 0; i < 3; i++) {

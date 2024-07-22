@@ -25,7 +25,7 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Uso**: `ordenacoes.exe [nome do arquivo]`
    - **Saída**: Imprime o tempo de execução de ambos os algoritmos para o console, permitindo a comparação. Exemplo:
     ```
-    Selection x Insertion
+    Insertion x Selection
     0.00070     0.00168
     ```
 
@@ -34,7 +34,7 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Uso**: `main.exe`
    - **Saída**: Imprime uma tabela no console com os tempos de execução de todos os casos de teste, comparando os tempos de ambos os algoritmos. Exemplo:
    ```
-    Selection x Insertion
+    Insertion x Selection
     num.1000.1.in: 0.00094     0.00124
     num.1000.2.in: 0.00065     0.00155
     num.1000.3.in: 0.00064     0.00123
