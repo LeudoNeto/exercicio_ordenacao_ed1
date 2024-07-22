@@ -9,6 +9,7 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Uso**: `insertion.exe [nome do arquivo]`
    - **Saída**: Imprime o tempo de execução do Insertion Sort para o console. Exemplo:
     ```
+    ./insertion.exe num.1000.1.in
     0.00088
     ```
 
@@ -17,6 +18,7 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Uso**: `selection.exe [nome do arquivo]`
    - **Saída**: Imprime o tempo de execução do Selection Sort para o console. Exemplo:
     ```
+    ./selection.exe num.1000.1.in
     0.00132
     ```
 
@@ -25,6 +27,7 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Uso**: `ordenacoes.exe [nome do arquivo]`
    - **Saída**: Imprime o tempo de execução de ambos os algoritmos para o console, permitindo a comparação. Exemplo:
     ```
+    ./ordenacoes.exe num.1000.1.in
     Insertion x Selection
     0.00070     0.00168
     ```
@@ -33,7 +36,8 @@ Este projeto contém quatro programas que implementam e comparam os algoritmos d
    - **Descrição**: Executa ambos os algoritmos de ordenação em todos os casos de teste.
    - **Uso**: `main.exe`
    - **Saída**: Imprime uma tabela no console com os tempos de execução de todos os casos de teste, comparando os tempos de ambos os algoritmos. Exemplo:
-   ```
+    ```
+    ./main.exe
     Insertion x Selection
     num.1000.1.in: 0.00094     0.00124
     num.1000.2.in: 0.00065     0.00155
