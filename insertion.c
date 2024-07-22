@@ -29,20 +29,15 @@ int ler_arquivo(FILE *file, char *nome_arquivo, int *numeros) {
     return i;
 }
 
-void selection_sort(int *numbers, int arr_size) {
-    int i, j, menor, temp;
+void insertion_sort(int *numbers, int arr_size) {
+    int i, j, atual, temp;
 
-    for (i = 0; i < arr_size; i++) {
-        menor = i;
-        for (j = i+1; j < arr_size; j++) {
-            if (numbers[j] < numbers[menor]) {
-                menor = j;
-            }
+    for (i = 1; i < arr_size; i++) {
+        atual = numbers[i];
+        for (j = i-1; atual < numbers[j] && j>0; j--) {
+            numbers[j+1] = numbers[j];
         }
-
-        temp = numbers[menor];
-        numbers[menor] = numbers[i];
-        numbers[i] = temp;
+        numbers[j+1] = atual;
     }
 }
 
@@ -64,7 +59,7 @@ int main(int argc, char *argv[]) {
     start = clock();
 
     // Ordena o array
-    selection_sort(numbers, arr_size);
+    insertion_sort(numbers, arr_size);
 
     printf("%.5f", (double)(clock() - start)/CLOCKS_PER_SEC);
 
