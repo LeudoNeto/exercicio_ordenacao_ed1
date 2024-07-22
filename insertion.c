@@ -30,7 +30,7 @@ int ler_arquivo(FILE *file, char *nome_arquivo, int *numeros) {
 }
 
 void insertion_sort(int *numbers, int arr_size) {
-    int i, j, atual, temp;
+    int i, j, atual;
 
     for (i = 1; i < arr_size; i++) {
         atual = numbers[i];
